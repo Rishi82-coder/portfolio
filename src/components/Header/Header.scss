@@ -1,0 +1,267 @@
+@import '../../styles/variables';
+
+// ============================================
+//  HEADER / NAVBAR  (Desktop — unchanged)
+// ============================================
+
+.header-navbar {
+  background-color: $dark-section !important;
+  padding: 14px 0;
+  border-bottom: 1px solid $border-dark;
+  transition: $transition;
+
+  &.header-scrolled {
+    padding: 10px 0;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  // ── Logo ──
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+
+    .header-logo-box {
+      width: 38px;
+      height: 38px;
+      background: $primary;
+      color: $white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      font-family: 'Inter', sans-serif;
+      flex-shrink: 0;
+    }
+
+    .header-logo-text {
+      color: $white;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+  }
+
+  // ── Desktop Nav Wrapper ──
+  .header-desktop-wrap {
+    gap: 0;
+  }
+
+  // ── Desktop Nav Links ──
+  .header-nav-menu {
+    gap: 2px;
+
+    .header-link {
+      color: #cbd5e1 !important;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 14px !important;
+      position: relative;
+      transition: $transition;
+
+      &:hover {
+        color: $primary !important;
+      }
+
+      &.header-link-active {
+        color: $primary !important;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 2px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 18px;
+          height: 2px;
+          background: $primary;
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+
+  // ── Desktop CTA Button ──
+  .header-cta {
+    .header-resume-btn {
+      background: transparent;
+      border: 2px solid $primary;
+      color: $primary;
+      border-radius: 25px;
+      padding: 8px 20px;
+      font-size: 0.87rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: $transition;
+      white-space: nowrap;
+
+      &:hover,
+      &:focus {
+        background: $primary;
+        color: $white;
+        box-shadow: 0 4px 16px rgba(43, 197, 112, 0.35);
+        transform: translateY(-2px);
+      }
+
+      .header-btn-icon {
+        font-size: 0.82rem;
+      }
+    }
+  }
+
+  // ── Mobile Hamburger Toggle ──
+  .header-mobile-toggle {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: $white;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      border-color: $primary;
+      color: $primary;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+    }
+  }
+}
+
+// ============================================
+//  OFFCANVAS  (Mobile right-side panel)
+// ============================================
+
+.header-offcanvas {
+  background-color: $dark-section !important;
+  width: 280px !important;
+  border-left: 1px solid $border-dark !important;
+
+  // ── Offcanvas Top Header ──
+  .header-offcanvas-head {
+    padding: 16px 22px;
+    border-bottom: 1px solid $border-dark;
+
+    .header-offcanvas-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .header-logo-box {
+        width: 36px;
+        height: 36px;
+        background: $primary;
+        color: $white;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        font-weight: 800;
+        font-size: 1rem;
+        font-family: 'Inter', sans-serif;
+        flex-shrink: 0;
+      }
+
+      .header-logo-text {
+        color: $white;
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+    }
+
+    // Bootstrap close button → make white
+    .btn-close {
+      filter: invert(1) brightness(0.75);
+      transition: $transition;
+
+      &:hover {
+        filter: invert(1) brightness(1);
+        opacity: 1;
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  // ── Offcanvas Body ──
+  .header-offcanvas-body {
+    padding: 10px 0 30px;
+    display: flex;
+    flex-direction: column;
+
+    // Mobile Nav Links
+    .header-mobile-nav {
+      flex-direction: column;
+      margin-bottom: 30px;
+
+      .header-mobile-link {
+        color: #cbd5e1 !important;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 13px 22px !important;
+        border-bottom: 1px solid $border-dark;
+        transition: $transition;
+
+        &:hover {
+          color: $primary !important;
+          background: rgba(43, 197, 112, 0.06);
+          padding-left: 30px !important;
+        }
+
+        &.header-mobile-link-active {
+          color: $primary !important;
+          background: rgba(43, 197, 112, 0.08);
+          border-left: 3px solid $primary;
+        }
+      }
+    }
+
+    // Mobile CTA Button
+    .header-offcanvas-cta {
+      padding: 0 22px;
+
+      .header-canvas-resume-btn {
+        background: $primary;
+        border: 2px solid $primary;
+        color: $white;
+        border-radius: 25px;
+        padding: 11px 22px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        transition: $transition;
+
+        &:hover,
+        &:focus {
+          background: $primary-dark;
+          border-color: $primary-dark;
+          color: $white;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(43, 197, 112, 0.3);
+        }
+
+        .header-btn-icon {
+          font-size: 0.82rem;
+        }
+      }
+    }
+  }
+}

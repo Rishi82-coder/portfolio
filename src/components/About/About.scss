@@ -1,0 +1,191 @@
+@import '../../styles/variables';
+
+// ========================
+//  ABOUT SECTION
+// ========================
+
+.about-section {
+  background: $white;
+  padding: 90px 0;
+
+  // ---- Title Block ----
+  .about-title-block {
+    margin-bottom: 20px;
+
+    .about-title-line {
+      display: block;
+      width: 44px;
+      height: 3px;
+      background: $primary;
+      border-radius: 2px;
+      margin-bottom: 12px;
+    }
+
+    .about-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: $text-dark;
+      margin: 0;
+    }
+  }
+
+  // ---- Description ----
+  .about-desc {
+    color: $text-gray;
+    font-size: 0.96rem;
+    line-height: 1.85;
+    margin-bottom: 28px;
+  }
+
+  // ---- Info List ----
+  .about-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+
+    .about-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+
+      .about-info-icon {
+        width: 40px;
+        height: 40px;
+        background: rgba(43, 197, 112, 0.1);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $primary;
+        font-size: 0.95rem;
+        flex-shrink: 0;
+      }
+
+      .about-info-text {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+
+        .about-info-value {
+          font-weight: 600;
+          font-size: 0.92rem;
+          color: $text-dark;
+        }
+
+        .about-info-label {
+          font-size: 0.8rem;
+          color: $text-gray;
+        }
+      }
+    }
+  }
+
+  // ---- Button ----
+  .about-more-btn {
+    background: $primary;
+    border: none;
+    color: $white;
+    border-radius: 25px;
+    padding: 11px 30px;
+    font-weight: 600;
+    font-size: 0.93rem;
+    transition: $transition;
+
+    &:hover,
+    &:focus {
+      background: $primary-dark;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(43, 197, 112, 0.32);
+      color: $white;
+    }
+  }
+
+  // ---- Image Column ----
+  .about-img-col {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .about-img-wrapper {
+    position: relative;
+    max-width: 430px;
+    width: 100%;
+
+    .about-img-frame {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+
+      .about-img {
+        width: 100%;
+        height: 310px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+    }
+
+    &:hover .about-img {
+      transform: scale(1.04);
+    }
+
+    // ---- Floating Tag Card ----
+    .about-design-card {
+      position: absolute;
+      bottom: -24px;
+      right: -24px;
+      background: $white;
+      padding: 22px 28px;
+      border-radius: 14px;
+      box-shadow: 0 10px 36px rgba(0, 0, 0, 0.13);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      .design-word {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: $text-dark;
+        line-height: 1.35;
+      }
+
+      .design-card-line {
+        width: 28px;
+        height: 3px;
+        background: $primary;
+        border-radius: 2px;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+// ---- Responsive ----
+@media (max-width: 991px) {
+  .about-section {
+    .about-img-col {
+      justify-content: center;
+      margin-top: 56px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .about-section {
+    padding: 70px 0;
+
+    .about-img-wrapper {
+      .about-design-card {
+        right: 8px;
+        bottom: -14px;
+        padding: 16px 20px;
+
+        .design-word {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,140 @@
+@import '../../styles/variables';
+
+// ========================
+//  SKILLS SECTION
+// ========================
+
+.skills-section {
+  background: $dark-section;
+  padding: 90px 0;
+
+  // ---- Section Header ----
+  .skills-header {
+    text-align: center;
+    margin-bottom: 52px;
+
+    .skills-header-line {
+      display: inline-block;
+      width: 44px;
+      height: 3px;
+      background: $primary;
+      border-radius: 2px;
+      margin-bottom: 12px;
+    }
+
+    .skills-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: $white;
+      margin-bottom: 8px;
+    }
+
+    .skills-subtitle {
+      color: $text-muted;
+      font-size: 0.92rem;
+      margin: 0;
+    }
+  }
+
+  // ---- Column ----
+  .skills-col {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  // ---- Skill Card ----
+  .skill-card {
+    width: 115px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.14);
+      transform: translateY(-7px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+    }
+
+    .skill-icon {
+      font-size: 2.5rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .skill-name {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      text-align: center;
+      // white-space: nowrap;
+    }
+
+    // ---- Brand Colors (no inline CSS) ----
+    &.skill-html .skill-icon {
+      color: #e34f26;
+    }
+
+    &.skill-sass .skill-icon {
+      color: #cc6699;
+    }
+
+    &.skill-bootstrap .skill-icon {
+      color: #7952b3;
+    }
+
+    &.skill-tailwind .skill-icon {
+      color: #06b6d4;
+    }
+
+    &.skill-figma .skill-icon {
+      color: #f24e1e;
+    }
+
+    &.skill-react .skill-icon {
+      color: #61dafb;
+    }
+
+    &.skill-git .skill-icon {
+      color: #f05032;
+    }
+
+    &.skill-responsive .skill-icon {
+      color: $primary;
+    }
+  }
+}
+
+// ---- Responsive ----
+
+@media (max-width: 991px) {
+  .skills-section {
+    .skill-card {
+      width: 100%;
+
+
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .skills-section {
+    .skill-card {
+      width: 100%;
+      padding: 20px 10px 16px;
+
+      .skill-icon {
+        font-size: 2rem;
+      }
+    }
+  }
+}

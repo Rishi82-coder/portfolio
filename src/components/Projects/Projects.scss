@@ -1,0 +1,195 @@
+@import '../../styles/variables';
+
+// ========================
+//  PROJECTS SECTION
+// ========================
+
+.projects-section {
+  background: $light-bg;
+  padding: 90px 0;
+
+  // ---- Top Row ----
+  .projects-top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 40px;
+
+    .projects-heading-block {
+      .projects-title-line {
+        display: block;
+        width: 44px;
+        height: 3px;
+        background: $primary;
+        border-radius: 2px;
+        margin-bottom: 12px;
+      }
+
+      .projects-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        color: $text-dark;
+        margin-bottom: 6px;
+      }
+
+      .projects-subtitle {
+        color: $text-gray;
+        font-size: 0.9rem;
+        margin: 0;
+      }
+    }
+
+    .projects-view-all {
+      color: $primary;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: $transition;
+      white-space: nowrap;
+      padding-bottom: 4px;
+
+      &:hover {
+        gap: 10px;
+        color: $primary-dark;
+      }
+    }
+  }
+
+  // ---- Project Column ----
+  .proj-col {
+    margin-bottom: 24px;
+  }
+
+  // ---- Project Card ----
+  .proj-card {
+    background: $white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: $shadow-card;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: $transition;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: $shadow-hover;
+    }
+
+    // ---- Image Box ----
+    .proj-img-box {
+      overflow: hidden;
+      height: 185px;
+      flex-shrink: 0;
+      position: relative;
+
+      .proj-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.45s ease;
+      }
+
+      .proj-overlay-link {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 36px;
+        height: 36px;
+        background: $primary;
+        color: $white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        text-decoration: none;
+        opacity: 0;
+        transform: scale(0.7);
+        transition: $transition;
+      }
+    }
+
+    &:hover .proj-img {
+      transform: scale(1.07);
+    }
+
+    &:hover .proj-overlay-link {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    // ---- Body ----
+    .proj-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      .proj-category {
+        font-size: 0.73rem;
+        font-weight: 600;
+        color: $primary;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        display: block;
+        margin-bottom: 7px;
+      }
+
+      .proj-name {
+        font-size: 1rem;
+        font-weight: 700;
+        color: $text-dark;
+        margin-bottom: 8px;
+      }
+
+      .proj-desc {
+        font-size: 0.83rem;
+        color: $text-gray;
+        line-height: 1.6;
+        margin-bottom: 14px;
+        flex: 1;
+      }
+
+      .proj-link {
+        color: $primary;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: $transition;
+        align-self: flex-start;
+
+        &:hover {
+          gap: 10px;
+          color: $primary-dark;
+        }
+      }
+    }
+  }
+}
+
+// ---- Responsive ----
+@media (max-width: 768px) {
+
+  .projects-section,
+  .skills-section,
+  .about-section,
+  .exp-section,
+  .footer-main {
+    padding: 40px 0 !important;
+
+    .projects-top {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}
