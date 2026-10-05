@@ -1,0 +1,371 @@
+@import '../src/styles/variables';
+
+
+@media (max-width: 991px) {
+  .about-section {
+    padding: 70px 0;
+
+    .about-img-col {
+      margin-top: 60px;
+    }
+
+    .about-img-wrapper {
+      .about-float-badge {
+        &.float-badge-top {
+          left: -10px;
+        }
+
+        &.float-badge-bottom {
+          right: -10px;
+        }
+      }
+    }
+  }
+
+  // ---- Skills Section ----
+  .skills-section {
+    padding: 70px 0;
+
+    .skills-top {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .sk-stats-row {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  // ---- Projects Section ----
+  .projects-section {
+    padding: 70px 0;
+
+    .proj-header-block {
+      margin-bottom: 30px;
+    }
+
+    .proj-cards-grid .proj-card .pc-img-wrap {
+      height: 210px;
+    }
+  }
+
+  // ---- Experience Section ----
+  .exp-section {
+    padding: 70px 0;
+
+    .exp-card .ec-points {
+      padding-left: 0;
+    }
+  }
+
+  // ---- Footer Section ----
+  .footer-cta-hero {
+    padding: 60px 0;
+
+    .fcta-inner {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+
+      .fcta-left .fcta-desc {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .footer-bar {
+    .fbar-inner {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+
+      .fbar-nav-wrap {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .all-projects-hero {
+    padding: 50px 0 60px;
+
+    .hero-content .hero-title {
+      font-size: 2rem;
+    }
+  }
+
+  .all-projects-grid-section {
+    padding: 40px 0;
+  }
+
+  .all-projects-cta {
+    padding: 50px 0;
+
+    h3 {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .banner-section {
+    padding: 120px 0 60px;
+
+    .banner-desc {
+      font-size: 0.95rem;
+    }
+
+    .banner-stats-box {
+      padding: 16px 20px;
+
+      .stat-item .stat-number {
+        font-size: 1.4rem;
+      }
+
+      .stat-item .stat-label {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  // ---- Projects Section ----
+  .projects-section {
+    padding: 50px 0;
+
+    .proj-header-block {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .proj-tab-btn:hover {
+      border-color: $border-light;
+      color: $text-dark;
+      transform: none;
+
+      &.active {
+        background: $primary;
+        color: $white;
+        border-color: $primary;
+      }
+    }
+
+    .proj-cards-grid .proj-card {
+      transform: none !important;
+
+      &:hover {
+        border-color: $border-light;
+        box-shadow: none;
+        transform: none;
+
+        .pc-img-wrap {
+          .pc-img {
+            transform: none;
+          }
+
+          .pc-overlay {
+            opacity: 0.6;
+          }
+
+          .pc-hover-btn {
+            opacity: 0;
+            display: none;
+          }
+        }
+
+        .pc-body .pc-title {
+          color: $text-dark;
+        }
+      }
+
+      .pc-img-wrap {
+        height: 200px;
+
+        .pc-hover-btn {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .banner-section {
+    padding: 110px 0 50px;
+
+    .banner-actions {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      .banner-btn-primary,
+      .banner-btn-secondary {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+    }
+
+    .banner-stats-box {
+      flex-direction: column;
+      gap: 16px;
+
+      .stat-divider {
+        width: 80%;
+        height: 1px;
+      }
+    }
+  }
+
+  // ---- About Section ----
+  .about-section {
+    padding: 55px 0;
+
+    .about-actions {
+      width: 100%;
+      flex-direction: column;
+
+      a,
+      .btn-green,
+      .btn-white,
+      .about-primary-btn,
+      .about-secondary-btn {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    .about-info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-img-wrapper {
+      .about-img-frame .about-img {
+        height: 300px;
+      }
+
+      .about-float-badge {
+        position: relative;
+        inset: auto !important;
+        margin-top: 14px;
+        animation: none !important;
+      }
+
+      .about-pillar-card {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin-top: 16px;
+        justify-content: center;
+      }
+    }
+  }
+
+  // ---- Skills Section ----
+  .skills-section {
+    padding: 50px 0 40px;
+
+    .skills-top .sk-stats-row {
+      gap: 12px;
+
+      .sk-stat {
+        padding: 12px 14px;
+        min-width: 75px;
+
+        .sk-stat-num {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .sk-tabs {
+      gap: 6px;
+
+      .sk-tab {
+        font-size: 0.7rem;
+        padding: 5px 12px;
+
+        &:hover:not(.sk-tab--active) {
+          border-color: rgba(255, 255, 255, 0.08);
+          color: $text-muted;
+        }
+      }
+    }
+
+    .sk-card {
+      &:hover {
+        transform: none;
+        box-shadow: none;
+        border-color: rgba(255, 255, 255, 0.07);
+
+        &::before {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  // ---- Experience Section ----
+  .exp-section {
+    padding: 50px 0;
+
+    .exp-top-header {
+      margin-bottom: 36px;
+    }
+
+    .exp-card {
+      padding: 18px;
+
+      .ec-top .ec-header .ec-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+
+        .ec-sep {
+          display: none;
+        }
+      }
+    }
+
+    .edu-card .edu-year-col {
+      width: 64px;
+    }
+
+    .exp-training-card .etc-header {
+      .etc-badge {
+        margin-left: 0;
+      }
+    }
+  }
+
+  // ---- Footer Section ----
+  .footer-cta-hero {
+    padding: 50px 0;
+
+    .fcta-right {
+      width: 100%;
+      flex-direction: column;
+      gap: 12px;
+
+      a,
+      .fcta-btn-gradient,
+      .btn-white {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+    }
+  }
+
+  .footer-big-brand {
+    padding: 35px 0 20px;
+
+    .fbb-text {
+      font-size: clamp(1.4rem, 8.5vw, 2.8rem);
+      letter-spacing: 0;
+    }
+  }
+}

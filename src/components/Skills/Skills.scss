@@ -458,8 +458,25 @@
       gap: 6px;
 
       .sk-tab {
-        font-size: 1rem;
+        font-size: 0.7rem;
         padding: 5px 12px;
+
+        &:hover:not(.sk-tab--active) {
+          border-color: rgba(255, 255, 255, 0.08);
+          color: $text-muted;
+        }
+      }
+    }
+
+    .sk-card {
+      &:hover {
+        transform: none;
+        box-shadow: none;
+        border-color: rgba(255, 255, 255, 0.07);
+
+        &::before {
+          opacity: 0;
+        }
       }
     }
   }
