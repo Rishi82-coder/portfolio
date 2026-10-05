@@ -427,6 +427,21 @@
   .about-section {
     padding: 55px 0;
 
+    .about-actions {
+      width: 100%;
+      flex-direction: column;
+
+      a,
+      .btn-green,
+      .btn-white,
+      .about-primary-btn,
+      .about-secondary-btn {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
     .about-info-grid {
       grid-template-columns: 1fr;
     }
