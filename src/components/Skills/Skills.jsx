@@ -27,13 +27,6 @@ const skills = [
   { icon: <SiPython />,      name: 'Python',           level: 50, cat: 'Worked With',  cls: 'skill-python',     desc: 'Basic exposure in projects' },
 ]
 
-const STATS = [
-  { num: '3+',   label: 'Years Experience' },
-  { num: '100%', label: 'Pixel Perfect' },
-  { num: '8+',   label: 'Design Tools' },
-  { num: '100%', label: 'Responsive Layouts' },
-]
-
 const Skills = () => {
   const [active, setActive] = useState('All')
   const [animated, setAnimated] = useState(false)
@@ -73,16 +66,6 @@ const Skills = () => {
               Tools and technologies I use to design beautiful, responsive,
               and pixel-perfect websites as a Web Designer.
             </p>
-          </div>
-
-          {/* Stats */}
-          <div className="sk-stats-row">
-            {STATS.map((s, i) => (
-              <div key={i} className="sk-stat">
-                <span className="sk-stat-num">{s.num}</span>
-                <span className="sk-stat-label">{s.label}</span>
-              </div>
-            ))}
           </div>
         </div>
 

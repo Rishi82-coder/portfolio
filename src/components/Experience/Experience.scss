@@ -4,16 +4,37 @@
 //  KEYFRAMES
 // ==============================
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(43,197,112,0.5); }
-  50%       { box-shadow: 0 0 0 6px rgba(43,197,112,0); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(43, 197, 112, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(43, 197, 112, 0);
+  }
 }
+
 @keyframes lineGrow {
-  from { height: 0; }
-  to   { height: 100%; }
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 100%;
+  }
 }
 
 // ==============================
@@ -33,18 +54,26 @@
     z-index: 0;
 
     &.eb1 {
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(43,197,112,0.06) 0%, transparent 70%);
-      top: -120px; left: -80px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(43, 197, 112, 0.06) 0%, transparent 70%);
+      top: -120px;
+      left: -80px;
     }
+
     &.eb2 {
-      width: 350px; height: 350px;
-      background: radial-gradient(circle, rgba(43,197,112,0.04) 0%, transparent 70%);
-      bottom: -80px; right: -60px;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(43, 197, 112, 0.04) 0%, transparent 70%);
+      bottom: -80px;
+      right: -60px;
     }
   }
 
-  .container { position: relative; z-index: 1; }
+  .container {
+    position: relative;
+    z-index: 1;
+  }
 
   // ==============================
   //  TOP HEADER
@@ -64,11 +93,14 @@
       span {
         color: $primary;
         position: relative;
+
         &::after {
           content: '';
           position: absolute;
-          bottom: -2px; left: 0;
-          width: 100%; height: 2px;
+          bottom: -2px;
+          left: 0;
+          width: 100%;
+          height: 2px;
           background: linear-gradient(90deg, $primary, transparent);
           border-radius: 2px;
         }
@@ -92,8 +124,8 @@
     color: $primary;
     text-transform: uppercase;
     letter-spacing: 1px;
-    background: rgba(43,197,112,0.08);
-    border: 1px solid rgba(43,197,112,0.2);
+    background: rgba(43, 197, 112, 0.08);
+    border: 1px solid rgba(43, 197, 112, 0.2);
     padding: 6px 14px;
     border-radius: 20px;
     margin-bottom: 24px;
@@ -126,8 +158,10 @@
     &::before {
       content: '';
       position: absolute;
-      top: 0; left: 0;
-      width: 3px; height: 0;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
       background: $primary;
       border-radius: 0 2px 2px 0;
       transition: height 0.6s ease;
@@ -135,18 +169,22 @@
 
     &:hover {
       border-color: rgba($primary, 0.25);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
       transform: translateY(-4px);
 
-      &::before { height: 100%; }
+      &::before {
+        height: 100%;
+      }
     }
 
     // Current job highlight
     &.exp-card--current {
-      background: linear-gradient(135deg, rgba(43,197,112,0.04) 0%, $white 60%);
-      border-color: rgba(43,197,112,0.2);
+      background: linear-gradient(135deg, rgba(43, 197, 112, 0.04) 0%, $white 60%);
+      border-color: rgba(43, 197, 112, 0.2);
 
-      &::before { height: 100%; }
+      &::before {
+        height: 100%;
+      }
     }
 
     // ---- Top row ----
@@ -172,7 +210,7 @@
           justify-content: center;
           font-size: 0.95rem;
           flex-shrink: 0;
-          box-shadow: 0 4px 14px rgba(43,197,112,0.35);
+          box-shadow: 0 4px 14px rgba(43, 197, 112, 0.35);
         }
 
         .ec-line {
@@ -209,8 +247,8 @@
             font-size: 0.68rem;
             font-weight: 700;
             color: $primary;
-            background: rgba(43,197,112,0.12);
-            border: 1px solid rgba(43,197,112,0.25);
+            background: rgba(43, 197, 112, 0.12);
+            border: 1px solid rgba(43, 197, 112, 0.25);
             padding: 3px 10px;
             border-radius: 20px;
             text-transform: uppercase;
@@ -253,7 +291,10 @@
             font-size: 0.78rem;
             color: $text-gray;
 
-            svg { font-size: 0.7rem; color: $primary; }
+            svg {
+              font-size: 0.7rem;
+              color: $primary;
+            }
           }
         }
 
@@ -318,9 +359,11 @@
     &::before {
       content: '';
       position: absolute;
-      top: -60px; right: -60px;
-      width: 180px; height: 180px;
-      background: radial-gradient(circle, rgba(43,197,112,0.12) 0%, transparent 70%);
+      top: -60px;
+      right: -60px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(43, 197, 112, 0.12) 0%, transparent 70%);
       border-radius: 50%;
     }
 
@@ -342,7 +385,7 @@
         justify-content: center;
         font-size: 1rem;
         flex-shrink: 0;
-        box-shadow: 0 4px 14px rgba(43,197,112,0.4);
+        box-shadow: 0 4px 14px rgba(43, 197, 112, 0.4);
       }
 
       .etc-title {
@@ -351,9 +394,10 @@
         color: $white;
         margin: 0;
       }
+
       .etc-sub {
         font-size: 0.75rem;
-        color: rgba(255,255,255,0.45);
+        color: rgba(255, 255, 255, 0.45);
         margin: 2px 0 0;
       }
 
@@ -365,8 +409,8 @@
         font-size: 0.72rem;
         font-weight: 700;
         color: $primary;
-        background: rgba(43,197,112,0.12);
-        border: 1px solid rgba(43,197,112,0.25);
+        background: rgba(43, 197, 112, 0.12);
+        border: 1px solid rgba(43, 197, 112, 0.25);
         padding: 4px 12px;
         border-radius: 20px;
       }
@@ -380,9 +424,10 @@
       gap: 12px;
 
       .ec-point {
-        color: rgba(255,255,255,0.75);
-        gap: 14px;
+        color: rgba(255, 255, 255, 0.75);
+        gap: 5px;
         align-items: flex-start;
+        display: flex;
 
         .ec-check {
           font-size: 0.95rem;
@@ -432,8 +477,8 @@
         font-size: 0.72rem;
         font-weight: 700;
         color: $primary;
-        background: rgba(43,197,112,0.1);
-        border: 1px solid rgba(43,197,112,0.2);
+        background: rgba(43, 197, 112, 0.1);
+        border: 1px solid rgba(43, 197, 112, 0.2);
         border-radius: 8px;
         padding: 3px 7px;
         text-align: center;
@@ -476,7 +521,7 @@
 
       &:hover {
         border-color: rgba($primary, 0.25);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
         transform: translateX(4px);
       }
 
@@ -521,16 +566,18 @@
     &::before {
       content: '';
       position: absolute;
-      bottom: -60px; left: -40px;
-      width: 200px; height: 200px;
-      background: radial-gradient(circle, rgba(43,197,112,0.1) 0%, transparent 70%);
+      bottom: -60px;
+      left: -40px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(43, 197, 112, 0.1) 0%, transparent 70%);
       border-radius: 50%;
     }
 
     .esc-title {
       font-size: 0.88rem;
       font-weight: 700;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255, 255, 255, 0.5);
       text-transform: uppercase;
       letter-spacing: 0.8px;
       margin-bottom: 18px;
@@ -543,8 +590,8 @@
     }
 
     .esc-item {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.07);
       border-radius: 14px;
       padding: 16px 14px;
       display: flex;
@@ -575,7 +622,7 @@
 
       .esc-label {
         font-size: 0.67rem;
-        color: rgba(255,255,255,0.4);
+        color: rgba(255, 255, 255, 0.4);
         text-transform: uppercase;
         letter-spacing: 0.4px;
         font-weight: 500;
@@ -591,7 +638,9 @@
   .exp-section {
     padding: 70px 0;
 
-    .exp-card .ec-points { padding-left: 0; }
+    .exp-card .ec-points {
+      padding-left: 0;
+    }
   }
 }
 
@@ -599,7 +648,9 @@
   .exp-section {
     padding: 50px 0;
 
-    .exp-top-header { margin-bottom: 36px; }
+    .exp-top-header {
+      margin-bottom: 36px;
+    }
 
     .exp-card {
       padding: 18px;
@@ -609,14 +660,20 @@
         align-items: flex-start;
         gap: 4px;
 
-        .ec-sep { display: none; }
+        .ec-sep {
+          display: none;
+        }
       }
     }
 
-    .edu-card .edu-year-col { width: 64px; }
+    .edu-card .edu-year-col {
+      width: 64px;
+    }
 
     .exp-training-card .etc-header {
-      .etc-badge { margin-left: 0; }
+      .etc-badge {
+        margin-left: 0;
+      }
     }
   }
 }
