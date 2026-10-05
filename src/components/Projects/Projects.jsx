@@ -66,9 +66,9 @@ const Projects = () => {
                   <div className="pc-overlay" />
 
                   {/* Category Pill Tag - High Contrast & Crisp */}
-                  <div className="pc-cat-badge">
+                  {/* <div className="pc-cat-badge">
                     <span>{proj.category}</span>
-                  </div>
+                  </div> */}
 
                   {/* Quick Action Button on Hover */}
                   <a
@@ -105,7 +105,7 @@ const Projects = () => {
                       rel="noopener noreferrer"
                       className="pc-link-btn"
                     >
-                      <span>Open Website</span>
+                      <span>View Website</span>
                       <FaExternalLinkAlt />
                     </a>
                   </div>

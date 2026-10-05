@@ -43,12 +43,11 @@ const Footer = () => {
                 <FaPaperPlane /> Send Me a Message
                 <span className="fcta-arrow"><FaArrowRight /></span>
               </a>
-              <a
-                href="tel:8264146092"
+              <button
                 className="btn-white"
               >
                 <FaPhone /> 826-414-6092
-              </a>
+              </button>
             </div>
           </div>
         </Container>
