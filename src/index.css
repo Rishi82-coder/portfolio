@@ -31,3 +31,78 @@ a {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Inter', sans-serif;
 }
+
+/* ==========================================
+   GLOBAL UNIFIED BUTTON SYSTEM
+   ========================================== */
+
+.btn-custom,
+.btn-green,
+.btn-white,
+.btn-outline-green {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.2;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+/* Green Solid Primary Button */
+.btn-green {
+  background-color: #2bc570;
+  color: #ffffff !important;
+  border-color: #2bc570;
+  box-shadow: 0 4px 16px rgba(43, 197, 112, 0.3);
+}
+
+.btn-green:hover,
+.btn-green:focus {
+  background-color: #1fa55a;
+  border-color: #1fa55a;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(43, 197, 112, 0.45);
+}
+
+/* White / Light Secondary Button */
+.btn-white {
+  background-color: #ffffff;
+  color: #1a1a2e !important;
+  border-color: #e5e7eb;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.btn-white:hover,
+.btn-white:focus {
+  background-color: #2bc570;
+  color: #ffffff !important;
+  border-color: #2bc570;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(43, 197, 112, 0.35);
+}
+
+/* Green Outline Secondary Button */
+.btn-outline-green {
+  background-color: transparent;
+  color: #2bc570 !important;
+  border-color: #2bc570;
+}
+
+.btn-outline-green:hover,
+.btn-outline-green:focus {
+  background-color: #2bc570;
+  color: #ffffff !important;
+  border-color: #2bc570;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(43, 197, 112, 0.35);
+}

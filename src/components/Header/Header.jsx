@@ -55,16 +55,15 @@ const Header = () => {
               ))}
             </Nav>
             <div className="header-cta">
-              <Button
-                className="header-resume-btn"
+              <a
+                className="btn-outline-green"
                 href="/images/Rishav-Resume.pdf"
                 download="Rishav-Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                as="a"
               >
                 Download Resume <FaDownload className="header-btn-icon" />
-              </Button>
+              </a>
             </div>
           </div>
 
@@ -112,17 +111,16 @@ const Header = () => {
           </Nav>
 
           <div className="header-offcanvas-cta">
-            <Button
-              className="header-canvas-resume-btn"
+            <a
+              className="btn-outline-green"
               href="/images/Rishav-Resume.pdf"
               download="Rishav-Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              as="a"
               onClick={handleClose}
             >
               Download Resume <FaDownload className="header-btn-icon" />
-            </Button>
+            </a>
           </div>
         </Offcanvas.Body>
       </Offcanvas>

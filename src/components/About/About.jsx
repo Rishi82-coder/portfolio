@@ -1,93 +1,145 @@
 import React from 'react'
-import { Container, Row, Col, Button } from 'react-bootstrap'
-import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaBriefcase } from 'react-icons/fa'
+import { Container, Row, Col } from 'react-bootstrap'
+import {
+  FaMapMarkerAlt, FaEnvelope, FaPhone, FaBriefcase,
+  FaArrowRight, FaCheckCircle, FaPalette, FaMobileAlt, FaLayerGroup
+} from 'react-icons/fa'
+import { HiSparkles } from 'react-icons/hi'
 import './About.scss'
+
+const SKILL_TAGS = [
+  'HTML5 & CSS3',
+  'SCSS / SASS',
+  'Bootstrap & Tailwind',
+  'React UI Styling',
+  'Figma to HTML',
+  'Responsive Layouts'
+]
 
 const About = () => {
   return (
     <section className="about-section" id="about">
-      <Container>
-        <Row className="align-items-center">
-          {/* Left: Text Content */}
-          <Col lg={6} md={12} className="about-text-col">
-            <div className="about-title-block">
-              <span className="about-title-line"></span>
-              <h2 className="about-title">About Me</h2>
+      {/* Ambient background blur blobs */}
+      <div className="about-blob ab1" />
+      <div className="about-blob ab2" />
+
+      <Container className="position-relative" style={{ zIndex: 2 }}>
+        <Row className="align-items-center g-5">
+
+          {/* Left Column: Text & Information */}
+          <Col lg={7} md={12} className="about-text-col">
+            <div className="about-header-block">
+              <h2 className="about-title">
+                About <span>Me</span>
+              </h2>
             </div>
 
             <p className="about-desc">
-              Passionate Web Designer with 3+ years of experience in creating visually appealing,
-              responsive, and user-centric websites. Skilled in HTML, CSS, React, Basic of JavaScript
-              and Git. Proven track record in collaborating with design teams to bring creative concepts
-              to life while ensuring high-quality user experiences and seamless functionality across
-              various devices.
+              Specialized in crafting pixel-perfect web interfaces using HTML, CSS, SCSS, Bootstrap, Tailwind CSS, and React UI styling. I bridge the gap between design concepts and functional frontend layouts — focusing on modern aesthetics, clean architecture, cross-browser compatibility, and smooth mobile responsiveness.
             </p>
 
-            <div className="about-info-list">
-              <div className="about-info-item">
-                <div className="about-info-icon">
-                  <FaMapMarkerAlt />
-                </div>
-                <div className="about-info-text">
-                  <span className="about-info-value">Phase 5, Mohali</span>
-                  <span className="about-info-label">Available for Hybrid / Onsite</span>
-                </div>
-              </div>
-
-              <div className="about-info-item">
-                <div className="about-info-icon">
-                  <FaEnvelope />
-                </div>
-                <div className="about-info-text">
-                  <span className="about-info-value">rishipangotra84@gmail.com</span>
-                  <span className="about-info-label">For collaborations / work</span>
+            {/* Quick Stats / Info Cards Grid */}
+            <div className="about-info-grid">
+              <div className="aig-card">
+                <div className="aig-icon"><FaBriefcase /></div>
+                <div className="aig-content">
+                  <span className="aig-value">3+ Years</span>
+                  <span className="aig-label">Web Design Experience</span>
                 </div>
               </div>
 
-              <div className="about-info-item">
-                <div className="about-info-icon">
-                  <FaPhone />
-                </div>
-                <div className="about-info-text">
-                  <span className="about-info-value">826-414-6092</span>
-                  <span className="about-info-label">Call / WhatsApp</span>
+              <div className="aig-card">
+                <div className="aig-icon"><FaMapMarkerAlt /></div>
+                <div className="aig-content">
+                  <span className="aig-value">Phase 5, Mohali</span>
+                  <span className="aig-label">Available for Hybrid / Onsite</span>
                 </div>
               </div>
 
-              <div className="about-info-item">
-                <div className="about-info-icon">
-                  <FaBriefcase />
+              <div className="aig-card">
+                <div className="aig-icon"><FaEnvelope /></div>
+                <div className="aig-content">
+                  <span className="aig-value">rishipangotra84@gmail.com</span>
+                  <span className="aig-label">For Collaborations</span>
                 </div>
-                <div className="about-info-text">
-                  <span className="about-info-value">3+ Years Experience</span>
-                  <span className="about-info-label">Web Design & Frontend Development</span>
+              </div>
+
+              <div className="aig-card">
+                <div className="aig-icon"><FaPhone /></div>
+                <div className="aig-content">
+                  <span className="aig-value">826-414-6092</span>
+                  <span className="aig-label">Call / WhatsApp</span>
                 </div>
               </div>
             </div>
 
-            <Button className="about-more-btn" href="#contact">
-              More About Me →
-            </Button>
+            {/* CTA Buttons */}
+            <div className="about-actions">
+              <a href="#contact" className="btn-green">
+                Let's Work Together <FaArrowRight />
+              </a>
+              <a href="#projects" className="btn-white">
+                View My Projects
+              </a>
+            </div>
           </Col>
 
-          {/* Right: Image + Design Card */}
-          <Col lg={6} md={12} className="about-img-col">
+          {/* Right Column: Visual Image Showcase */}
+          <Col lg={5} md={12} className="about-img-col">
             <div className="about-img-wrapper">
+              
+              {/* Outer decorative ring */}
+              <div className="about-glow-ring" />
+
+              {/* Main Image Frame */}
               <div className="about-img-frame">
                 <img
                   src="/images/about-workspace.jpg"
-                  alt="Professional workspace"
+                  alt="Rishav Pangotra Web Designer Workspace"
                   className="about-img"
                 />
+                <div className="about-img-overlay" />
               </div>
-              <div className="about-design-card">
-                <span className="design-word">Design</span>
-                <span className="design-word">Build</span>
-                <span className="design-word">Grow</span>
-                <div className="design-card-line"></div>
+
+              {/* Floating Badge 1 - Top Left */}
+              <div className="about-float-badge float-badge-top">
+                <div className="afb-icon-box"><FaPalette /></div>
+                <div className="afb-text">
+                  <span className="afb-title">Web Design</span>
+                  <span className="afb-sub">Figma to Pixel-Perfect HTML</span>
+                </div>
               </div>
+
+              {/* Floating Badge 2 - Bottom Right */}
+              <div className="about-float-badge float-badge-bottom">
+                <div className="afb-icon-box afb-icon-green"><FaMobileAlt /></div>
+                <div className="afb-text">
+                  <span className="afb-title">100% Responsive</span>
+                  <span className="afb-sub">All Screen Sizes</span>
+                </div>
+              </div>
+
+              {/* Floating Pillar Banner */}
+              <div className="about-pillar-card">
+                <div className="apc-item">
+                  <FaLayerGroup />
+                  <span>Design</span>
+                </div>
+                <div className="apc-dot">•</div>
+                <div className="apc-item">
+                  <FaPalette />
+                  <span>Style</span>
+                </div>
+                <div className="apc-dot">•</div>
+                <div className="apc-item">
+                  <FaCheckCircle />
+                  <span>Deploy</span>
+                </div>
+              </div>
+
             </div>
           </Col>
+
         </Row>
       </Container>
     </section>

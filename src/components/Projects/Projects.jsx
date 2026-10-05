@@ -1,95 +1,121 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import { FaArrowRight, FaExternalLinkAlt } from 'react-icons/fa'
+import { FaArrowUpRightFromSquare, FaTag } from 'react-icons/fa6'
+import { FaExternalLinkAlt } from 'react-icons/fa'
+import { HiSparkles } from 'react-icons/hi'
+import { projects } from './allProjectsData'
 import './Projects.scss'
 
-const projects = [
-  {
-    img: '/images/cloths.png',
-    category: 'Fashion & Lifestyle',
-    title: 'Ladies Fashion Store',
-    desc: 'An elegant e-commerce platform for ladies fashion & clothing. Browse the latest trends in dresses, outfits and accessories with a smooth shopping experience.',
-    link: 'https://nomad.codebynish.com/',
-    cls: 'proj-cloths',
-  },
-  {
-    img: '/images/juice.png',
-    category: 'Food & Beverage',
-    title: 'Juice Café Website',
-    desc: 'A vibrant and fresh website for a juice café. Features a colorful menu, online ordering experience and a healthy lifestyle brand identity.',
-    link: 'https://juice.codebynish.com/',
-    cls: 'proj-juice',
-  },
-  {
-    img: '/images/weeding.png',
-    category: 'Events & Rentals',
-    title: 'Widoora – Event Supplies',
-    desc: 'A professional platform for renting wedding and event supplies. Offers furniture, décor and essentials for weddings, parties and outdoor functions.',
-    link: 'https://www.widoora.com/',
-    cls: 'proj-weeding',
-  },
-  {
-    img: '/images/taxsimba.png',
-    category: 'Finance & Tax',
-    title: 'TaxSimba – Self Tax Filing',
-    desc: 'An intuitive online tax management platform allowing users to hassle-free file, calculate and manage their taxes self-service online.',
-    link: 'https://taxsimba.co.uk/',
-    cls: 'proj-taxsimba',
-  },
-]
+const CATEGORIES = ['All', 'AI & Apps', 'E-Commerce', 'Health & Wellness', 'Events & Finance']
 
 const Projects = () => {
+  const [activeCategory, setActiveCategory] = useState('All')
+
+  const filteredProjects = activeCategory === 'All'
+    ? projects
+    : projects.filter(p => {
+      if (activeCategory === 'AI & Apps') return p.category.includes('AI')
+      if (activeCategory === 'E-Commerce') return p.category.includes('Commerce') || p.category.includes('Fashion')
+      if (activeCategory === 'Health & Wellness') return p.category.includes('Health') || p.category.includes('Food')
+      if (activeCategory === 'Events & Finance') return p.category.includes('Auctions') || p.category.includes('Finance') || p.category.includes('Events')
+      return true
+    })
+
   return (
     <section className="projects-section" id="projects">
-      <Container>
-        {/* Top row: heading + view all */}
-        <div className="projects-top">
-          <div className="projects-heading-block">
-            <span className="projects-title-line"></span>
-            <h2 className="projects-title">My Projects</h2>
-            <p className="projects-subtitle">Some of the projects I've worked on</p>
+      {/* Background Blobs */}
+      <div className="proj-bg-blob pb1" />
+      <div className="proj-bg-blob pb2" />
+
+      <Container className="position-relative" style={{ zIndex: 2 }}>
+
+        {/* ---- SECTION HEADER ---- */}
+        <div className="proj-header-block">
+          <div className="ph-left">
+            <h2 className="proj-main-title">
+              Featured <span>Projects</span>
+            </h2>
+            <p className="proj-main-sub">
+              Explore my latest web design projects, Figma translations, e-commerce stores, and responsive web applications.
+            </p>
           </div>
-          {/* <a href="#" className="projects-view-all">
-            View All Projects <FaArrowRight />
-          </a> */}
         </div>
 
-        {/* Project Cards */}
-        <Row>
-          {projects.map((proj, i) => (
-            <Col key={i} lg={3} md={6} sm={12} className="proj-col">
-              <div className={`proj-card ${proj.cls}`}>
-                <div className="proj-img-box">
-                  <img src={proj.img} alt={proj.title} className="proj-img" />
-                  {proj.link !== '#' && (
+        {/* ---- CATEGORY FILTER TABS ---- */}
+        <div className="proj-tabs-wrapper">
+          {CATEGORIES.map(cat => (
+            <button
+              key={cat}
+              className={`proj-tab-btn ${activeCategory === cat ? 'active' : ''}`}
+              onClick={() => setActiveCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* ---- PROJECTS GRID ---- */}
+        <Row className="g-4 proj-cards-grid">
+          {filteredProjects.map((proj, index) => (
+            <Col key={proj.id} lg={4} md={6} sm={12}>
+              <div className="proj-card" style={{ animationDelay: `${index * 0.1}s` }}>
+
+                {/* Image Frame */}
+                <div className="pc-img-wrap">
+                  <img src={proj.img} alt={proj.title} className="pc-img" />
+                  <div className="pc-overlay" />
+
+                  {/* Category Pill Tag - High Contrast & Crisp */}
+                  <div className="pc-cat-badge">
+                    <span>{proj.category}</span>
+                  </div>
+
+                  {/* Quick Action Button on Hover */}
+                  <a
+                    href={proj.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pc-hover-btn"
+                    aria-label={`Visit ${proj.title}`}
+                  >
+                    <span>Visit Live Site</span>
+                    <FaArrowUpRightFromSquare />
+                  </a>
+                </div>
+
+                {/* Card Body */}
+                <div className="pc-body">
+                  <h3 className="pc-title">{proj.title}</h3>
+                  <p className="pc-desc">{proj.desc}</p>
+
+                  {/* Tech Tags */}
+                  <div className="pc-tags">
+                    {proj.tags && proj.tags.map((tag, tIdx) => (
+                      <span key={tIdx} className="pc-tag">
+                        <FaTag className="tag-icon" /> {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Bottom Footer Link */}
+                  <div className="pc-footer">
                     <a
                       href={proj.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="proj-overlay-link"
-                      aria-label={`Open ${proj.title}`}
+                      className="pc-link-btn"
                     >
+                      <span>Open Website</span>
                       <FaExternalLinkAlt />
                     </a>
-                  )}
+                  </div>
                 </div>
-                <div className="proj-body">
-                  <span className="proj-category">{proj.category}</span>
-                  <h3 className="proj-name">{proj.title}</h3>
-                  <p className="proj-desc">{proj.desc}</p>
-                  <a
-                    href={proj.link}
-                    target={proj.link !== '#' ? '_blank' : '_self'}
-                    rel="noopener noreferrer"
-                    className="proj-link"
-                  >
-                    View Project <FaArrowRight />
-                  </a>
-                </div>
+
               </div>
             </Col>
           ))}
         </Row>
+
       </Container>
     </section>
   )

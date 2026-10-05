@@ -1,140 +1,397 @@
 @import '../../styles/variables';
 
-// ========================
-//  SKILLS SECTION
-// ========================
+// ==============================
+//  KEYFRAMES
+// ==============================
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes barGrow {
+  from { width: 0% !important; }
+}
+@keyframes orbPulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50%       { transform: scale(1.15); opacity: 0.9; }
+}
 
+// ==============================
+//  SECTION
+// ==============================
 .skills-section {
   background: $dark-section;
-  padding: 90px 0;
+  padding: 100px 0 80px;
+  position: relative;
+  overflow: hidden;
 
-  // ---- Section Header ----
-  .skills-header {
-    text-align: center;
-    margin-bottom: 52px;
+  // BG orbs
+  .skills-bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    animation: orbPulse 8s ease-in-out infinite;
 
-    .skills-header-line {
-      display: inline-block;
-      width: 44px;
-      height: 3px;
-      background: $primary;
-      border-radius: 2px;
-      margin-bottom: 12px;
+    &.sk-orb-1 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(43,197,112,0.1) 0%, transparent 70%);
+      top: -100px; right: -80px;
     }
-
-    .skills-title {
-      font-size: 1.9rem;
-      font-weight: 700;
-      color: $white;
-      margin-bottom: 8px;
-    }
-
-    .skills-subtitle {
-      color: $text-muted;
-      font-size: 0.92rem;
-      margin: 0;
+    &.sk-orb-2 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(43,197,112,0.07) 0%, transparent 70%);
+      bottom: -80px; left: -60px;
+      animation-delay: -4s;
     }
   }
 
-  // ---- Column ----
-  .skills-col {
-    margin-bottom: 20px;
+  // ==============================
+  //  TOP HEADER BLOCK
+  // ==============================
+  .skills-top {
     display: flex;
-    justify-content: center;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+
+    .skills-heading-block {
+
+      .sk-title {
+        font-size: clamp(1.9rem, 4vw, 2.6rem);
+        font-weight: 800;
+        color: $white;
+        margin-bottom: 12px;
+        line-height: 1.1;
+
+        span {
+          color: $primary;
+          position: relative;
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, $primary, transparent);
+            border-radius: 2px;
+          }
+        }
+      }
+
+      .sk-subtitle {
+        color: $text-muted;
+        font-size: 0.95rem;
+        max-width: 440px;
+        line-height: 1.75;
+        margin: 0;
+      }
+    }
+
+    // Stats
+    .sk-stats-row {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+
+      .sk-stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 16px 22px;
+        min-width: 90px;
+        transition: $transition;
+
+        &:hover {
+          border-color: rgba($primary, 0.35);
+          background: rgba($primary, 0.06);
+          transform: translateY(-4px);
+        }
+
+        .sk-stat-num {
+          font-size: 1.5rem;
+          font-weight: 800;
+          color: $primary;
+          line-height: 1;
+          margin-bottom: 4px;
+        }
+
+        .sk-stat-label {
+          font-size: 0.68rem;
+          color: $text-muted;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          text-align: center;
+          font-weight: 500;
+        }
+      }
+    }
   }
 
-  // ---- Skill Card ----
-  .skill-card {
-    width: 115px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 14px;
+  // ==============================
+  //  CATEGORY TABS
+  // ==============================
+  .sk-tabs {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 8px;
-    cursor: pointer;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+
+    .sk-tab {
+      position: relative;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: $text-muted;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 9px 22px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: $transition;
+      outline: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+
+      &:hover {
+        border-color: rgba($primary, 0.35);
+        color: rgba(255,255,255,0.8);
+      }
+
+      &.sk-tab--active {
+        background: $primary;
+        border-color: $primary;
+        color: $white;
+        box-shadow: 0 4px 20px rgba(43,197,112,0.35);
+
+        .tab-dot {
+          display: block;
+        }
+      }
+
+      .tab-dot {
+        display: none;
+        width: 5px;
+        height: 5px;
+        background: rgba(255,255,255,0.6);
+        border-radius: 50%;
+      }
+    }
+  }
+
+  // ==============================
+  //  SKILL CARD
+  // ==============================
+  .skills-grid {
+    // stagger animation on each card
+    [class*="col"] {
+      animation: fadeInUp 0.45s ease both;
+    }
+  }
+
+  .sk-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 20px;
     transition: $transition;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    cursor: default;
+
+    // Hover glow
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba($primary, 0.06) 0%, transparent 60%);
+      opacity: 0;
+      transition: $transition;
+    }
 
     &:hover {
-      background: rgba(255, 255, 255, 0.09);
-      border-color: rgba(255, 255, 255, 0.14);
-      transform: translateY(-7px);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+      border-color: rgba($primary, 0.25);
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba($primary, 0.12);
+
+      &::before { opacity: 1; }
     }
 
-    .skill-icon {
-      font-size: 2.5rem;
-      line-height: 1;
+    // Top row: icon + info + percent
+    .sk-card-top {
       display: flex;
       align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+
+      .sk-icon-wrap {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: $transition;
+      }
+
+      .sk-icon {
+        font-size: 1.5rem;
+        line-height: 1;
+        display: flex;
+      }
+
+      .sk-card-info {
+        flex: 1;
+        min-width: 0;
+
+        .sk-name {
+          display: block;
+          font-size: 0.88rem;
+          font-weight: 700;
+          color: $white;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .sk-desc {
+          display: block;
+          font-size: 0.71rem;
+          color: $text-muted;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      .sk-percent {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: $primary;
+        flex-shrink: 0;
+      }
     }
 
-    .skill-name {
-      font-size: 0.76rem;
-      font-weight: 600;
-      color: #cbd5e1;
-      text-align: center;
-      // white-space: nowrap;
+    // Progress bar
+    .sk-bar-track {
+      height: 4px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 12px;
+
+      .sk-bar-fill {
+        height: 100%;
+        border-radius: 4px;
+        background: linear-gradient(90deg, $primary-dark, $primary, #6ee7b7);
+        transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        position: relative;
+
+        // Shimmer
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0; right: 0;
+          width: 20px;
+          height: 100%;
+          background: rgba(255,255,255,0.3);
+          border-radius: 4px;
+          filter: blur(3px);
+        }
+      }
     }
 
-    // ---- Brand Colors (no inline CSS) ----
-    &.skill-html .skill-icon {
-      color: #e34f26;
+    // Category pill
+    .sk-cat-pill {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 3px 9px;
+      border-radius: 10px;
+      background: rgba($primary, 0.08);
+      border: 1px solid rgba($primary, 0.15);
+      color: rgba($primary, 0.75);
     }
 
-    &.skill-sass .skill-icon {
-      color: #cc6699;
-    }
+    // ---- Brand icon colors ----
+    &.skill-html  .sk-icon { color: #e34f26; }
+    &.skill-css   .sk-icon { color: #2965f1; }
+    &.skill-js    .sk-icon { color: #f7df1e; }
+    &.skill-react .sk-icon { color: #61dafb; }
+    &.skill-sass  .sk-icon { color: #cc6699; }
+    &.skill-tailwind .sk-icon { color: #06b6d4; }
+    &.skill-bootstrap .sk-icon { color: #7952b3; }
+    &.skill-figma .sk-icon { color: #f24e1e; }
+    &.skill-responsive .sk-icon { color: $primary; }
+    &.skill-git   .sk-icon { color: #f05032; }
+    &.skill-php   .sk-icon { color: #777bb4; }
+    &.skill-python .sk-icon { color: #3776ab; }
 
-    &.skill-bootstrap .skill-icon {
-      color: #7952b3;
-    }
-
-    &.skill-tailwind .skill-icon {
-      color: #06b6d4;
-    }
-
-    &.skill-figma .skill-icon {
-      color: #f24e1e;
-    }
-
-    &.skill-react .skill-icon {
-      color: #61dafb;
-    }
-
-    &.skill-git .skill-icon {
-      color: #f05032;
-    }
-
-    &.skill-responsive .skill-icon {
-      color: $primary;
-    }
+    // On hover — icon wrap glows with brand color
+    &.skill-html:hover  .sk-icon-wrap { border-color: rgba(#e34f26, 0.4); background: rgba(#e34f26, 0.08); }
+    &.skill-css:hover   .sk-icon-wrap { border-color: rgba(#2965f1, 0.4); background: rgba(#2965f1, 0.08); }
+    &.skill-js:hover    .sk-icon-wrap { border-color: rgba(#f7df1e, 0.4); background: rgba(#f7df1e, 0.08); }
+    &.skill-react:hover .sk-icon-wrap { border-color: rgba(#61dafb, 0.4); background: rgba(#61dafb, 0.08); }
+    &.skill-sass:hover  .sk-icon-wrap { border-color: rgba(#cc6699, 0.4); background: rgba(#cc6699, 0.08); }
+    &.skill-tailwind:hover .sk-icon-wrap { border-color: rgba(#06b6d4, 0.4); background: rgba(#06b6d4, 0.08); }
+    &.skill-bootstrap:hover .sk-icon-wrap { border-color: rgba(#7952b3, 0.4); background: rgba(#7952b3, 0.08); }
+    &.skill-figma:hover .sk-icon-wrap { border-color: rgba(#f24e1e, 0.4); background: rgba(#f24e1e, 0.08); }
+    &.skill-git:hover   .sk-icon-wrap { border-color: rgba(#f05032, 0.4); background: rgba(#f05032, 0.08); }
+    &.skill-responsive:hover .sk-icon-wrap { border-color: rgba($primary, 0.4); background: rgba($primary, 0.08); }
   }
 }
 
-// ---- Responsive ----
-
+// ==============================
+//  RESPONSIVE
+// ==============================
 @media (max-width: 991px) {
   .skills-section {
-    .skill-card {
-      width: 100%;
+    padding: 70px 0;
 
+    .skills-top {
+      flex-direction: column;
+      align-items: flex-start;
 
+      .sk-stats-row {
+        width: 100%;
+        justify-content: flex-start;
+      }
     }
   }
 }
 
 @media (max-width: 576px) {
   .skills-section {
-    .skill-card {
-      width: 100%;
-      padding: 20px 10px 16px;
+    padding: 50px 0 40px;
 
-      .skill-icon {
-        font-size: 2rem;
+    .skills-top .sk-stats-row {
+      gap: 12px;
+
+      .sk-stat {
+        padding: 12px 14px;
+        min-width: 75px;
+
+        .sk-stat-num { font-size: 1.2rem; }
       }
+    }
+
+    .sk-tabs {
+      gap: 6px;
+      .sk-tab { font-size: 0.78rem; padding: 7px 16px; }
     }
   }
 }
