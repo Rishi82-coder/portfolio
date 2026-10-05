@@ -45,14 +45,6 @@ const Banner = () => {
         <Row className="justify-content-center">
           <Col lg={9} md={11} sm={12} className="banner-col">
 
-            {/* Top Status Badge */}
-            <div className="banner-badge-wrapper">
-              <div className="banner-badge">
-                <span className="banner-badge-dot"></span>
-                <span className="banner-badge-text">Available for Freelance & Full-time Roles</span>
-              </div>
-            </div>
-
             {/* Hero Main Heading */}
             <h1 className="banner-heading">
               Hi, I'm <span className="banner-name">Rishav Pangotra</span>
